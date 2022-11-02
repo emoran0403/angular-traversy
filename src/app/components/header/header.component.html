@@ -1,0 +1,10 @@
+<h1>
+  <header>{{ title }}</header>
+  <!-- app-button is our custom component, where we can define the color and text -->
+  <!-- when it receives our custom event btnClick, it will call toggleAddTask, which is defined in the header.ts  -->
+  <app-button
+    color="green"
+    text="add"
+    (btnClick)="toggleAddTask()"
+  ></app-button>
+</h1>

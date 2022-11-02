@@ -1,0 +1,11 @@
+<!-- ngstyle is how we can set in-line styling. here we have linked the background color to the input color -->
+<!-- when there is a (click) event on the button, run the onClick function, which is defined in the ts file for this component -->
+<!-- button has a custom color, class, and event -->
+<button
+  [ngStyle]="{ 'background-color': color }"
+  class="btn"
+  (click)="onClick()"
+>
+  <!-- the text of the button is treated as input, so we can set it when we use the selector -->
+  {{ text }}
+</button>
