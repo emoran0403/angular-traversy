@@ -10,6 +10,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 export class TaskItemComponent implements OnInit {
   @Input() task!: Task;
   @Output() onDeleteTask: EventEmitter<Task> = new EventEmitter();
+  @Output() onToggleReminder: EventEmitter<Task> = new EventEmitter();
 
   faTimes = faTimes;
 
@@ -22,5 +23,10 @@ export class TaskItemComponent implements OnInit {
     // console.log({ task });
     // it will emit the event to the parent component, passing along the task that is to be deleted
     this.onDeleteTask.emit(task);
+  }
+
+  onToggle(task: Task) {
+    // emit this event to the parent component
+    this.onToggleReminder.emit(task);
   }
 }

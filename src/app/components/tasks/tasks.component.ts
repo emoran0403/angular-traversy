@@ -34,4 +34,16 @@ export class TasksComponent implements OnInit {
       this.tasks = this.tasks.filter((t) => t.id !== task.id);
     });
   }
+
+  // this function toggles the reminder boolean, which is used to conditionally add a border to the task items
+  // it will not make a call to db.json
+  toggleReminder(task: Task) {
+    // invert the reminder boolean
+    task.reminder = !task.reminder;
+    // call the updateTaskReminder function on taskService and subscribe
+    //! make sure to actually call subscribe lol
+    // DO   => subscribe()
+    // DONT => subscribe
+    this.taskService.updateTaskReminder(task).subscribe();
+  }
 }

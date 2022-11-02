@@ -1,4 +1,9 @@
-<div class="task">
+<!-- conditionally apply the 'reminder' class if task.reminder is true  -->
+<div
+  [ngClass]="{ reminder: task.reminder }"
+  class="task"
+  (dblclick)="onToggle(task)"
+>
   <!-- display the text from the task in an h3 -->
   <h3>
     {{ task.text }}

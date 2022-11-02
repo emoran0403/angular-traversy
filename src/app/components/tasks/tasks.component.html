@@ -13,4 +13,5 @@ when our custom event 'onDeleteTask' is emitted, capture it and run the deleteTa
   *ngFor="let task of tasks"
   [task]="task"
   (onDeleteTask)="deleteTask(task)"
+  (onToggleReminder)="toggleReminder(task)"
 ></app-task-item>
