@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-task.component.css'],
 })
 export class AddTaskComponent implements OnInit {
+  // with the current ts config settings, I need to assert these values will have a value if I don't define them here
+  text!: string;
+  day!: string;
+  reminder: boolean = false;
   constructor() {}
 
   ngOnInit(): void {}

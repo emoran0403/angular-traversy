@@ -1,17 +1,44 @@
 <form class="add-form">
   <div class="form-control">
     <label for="text">Task</label>
-    <input type="text" name="text" id="text" placeholder="Add Task" />
+    <!-- [(ngModel)] is how we can set up 2-way data binding, allowing us to update the value in realtime
+    setting it to = "text"
+
+    this is the same idea as a react-controlled input, 
+    with state representing the value, 
+    the html tag displaying the value of state, 
+    and a change event updating state
+    -->
+    <input
+      type="text"
+      name="text"
+      [(ngModel)]="text"
+      id="text"
+      placeholder="Add Task"
+    />
   </div>
 
   <div class="form-control">
     <label for="day">Day & Time</label>
-    <input type="text" name="day" id="day" placeholder="Add Day & Time" />
+    <input
+      type="text"
+      name="day"
+      [(ngModel)]="day"
+      id="day"
+      placeholder="Add Day & Time"
+    />
   </div>
-
+  <!-- {{ text }} {{ day }} {{ reminder }} 
+    testing the inputs
+    -->
   <div class="form-control form-control-check">
     <label for="reminder">Set Reminder</label>
-    <input type="checkbox" name="reminder" id="reminder" />
+    <input
+      type="checkbox"
+      name="reminder"
+      [(ngModel)]="reminder"
+      id="reminder"
+    />
   </div>
   <input type="submit" value="Save Task" class="btn btn-block" />
 </form>
