@@ -3,7 +3,12 @@
   <h3>
     {{ task.text }}
     <!-- add an icon at the end, and style it red -->
-    <fa-icon [ngStyle]="{ color: 'red' }" [icon]="faTimes"></fa-icon>
+    <!-- define a click event to call onDelete, passing in the task so we can have context of it when deleting -->
+    <fa-icon
+      (click)="onDelete(task)"
+      [ngStyle]="{ color: 'red' }"
+      [icon]="faTimes"
+    ></fa-icon>
   </h3>
   <!-- add the day in a p tag -->
   <p>{{ task.day }}</p>
