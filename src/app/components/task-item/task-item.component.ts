@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../Task';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,6 +9,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 })
 export class TaskItemComponent implements OnInit {
   @Input() task!: Task;
+  @Output() onDeleteTask: EventEmitter<Task> = new EventEmitter();
 
   faTimes = faTimes;
 
@@ -16,7 +17,10 @@ export class TaskItemComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // onDelete is a function that will be called when the red x is clicked
   onDelete(task: Task) {
-    console.log({ task });
+    // console.log({ task });
+    // it will emit the event to the parent component, passing along the task that is to be deleted
+    this.onDeleteTask.emit(task);
   }
 }

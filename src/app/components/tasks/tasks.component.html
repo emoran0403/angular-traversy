@@ -6,5 +6,11 @@
     in React, this is similar to mapping over an array of data,
     returning a component with the data passed in as props
 
+when our custom event 'onDeleteTask' is emitted, capture it and run the deleteTask function
+
 -->
-<app-task-item *ngFor="let task of tasks" [task]="task"></app-task-item>
+<app-task-item
+  *ngFor="let task of tasks"
+  [task]="task"
+  (onDeleteTask)="deleteTask(task)"
+></app-task-item>

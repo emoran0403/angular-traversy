@@ -32,4 +32,11 @@ export class TaskService {
     // and define the return type as an observable with a Task[]
     return this.http.get<Task[]>(this.apiUrl);
   }
+
+  deleteTask(task: Task): Observable<Task> {
+    // define the url by interpolating the task id with the apiUrl
+    const url = `${this.apiUrl}/${task.id}`;
+    // return a call to the HttpClient, passing in a delete request to the apiUrl with the id from the task object
+    return this.http.delete<Task>(url);
+  }
 }

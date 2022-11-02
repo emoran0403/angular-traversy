@@ -15,13 +15,6 @@ export class TasksComponent implements OnInit {
   // define it as private, since this and only this class needs to use it
   constructor(private taskService: TaskService) {}
 
-  // // this runs once when the class is initialized
-  // ngOnInit(): void {
-  //   // get the tasks from the task service, setting the tasks to this.tasks
-  //   //* this is ok since we are just bringing in a file, we use an observable to make fetches and for other anync behavior
-  //   this.tasks = this.taskService.getTasks();
-  // }
-
   // this runs once when the class is initialized
   ngOnInit(): void {
     // get the tasks from the task service
@@ -31,5 +24,14 @@ export class TasksComponent implements OnInit {
     // Observable.subscribe((data) => doSomethingWith(data))
     // is similar to
     // Promise.then((res) => doSomethingWith(res))
+  }
+
+  // this function updates the tasks list above when a delete task function is called
+  // another function handles removing it from the db, this handles removing it from the screen
+  // it filters out the task on screen whose ID matches that of the deleted task
+  deleteTask(task: Task) {
+    this.taskService.deleteTask(task).subscribe(() => {
+      this.tasks = this.tasks.filter((t) => t.id !== task.id);
+    });
   }
 }
