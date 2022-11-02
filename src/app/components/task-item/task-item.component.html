@@ -1,4 +1,10 @@
 <div class="task">
-  <h3>{{ task.text }}</h3>
+  <!-- display the text from the task in an h3 -->
+  <h3>
+    {{ task.text }}
+    <!-- add an icon at the end, and style it red -->
+    <fa-icon [ngStyle]="{ color: 'red' }" [icon]="faTimes"></fa-icon>
+  </h3>
+  <!-- add the day in a p tag -->
   <p>{{ task.day }}</p>
 </div>

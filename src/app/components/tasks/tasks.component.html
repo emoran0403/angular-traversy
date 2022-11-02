@@ -1,1 +1,10 @@
+<!--
+    in Angular, this tasks component will hold the task-item components
+    we use ngFor to iterate over the number of tasks that we have,
+    passing each task data down into the task-item component
+
+    in React, this is similar to mapping over an array of data,
+    returning a component with the data passed in as props
+
+-->
 <app-task-item *ngFor="let task of tasks" [task]="task"></app-task-item>
