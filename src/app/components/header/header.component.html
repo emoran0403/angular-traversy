@@ -3,8 +3,8 @@
   <!-- app-button is our custom component, where we can define the color and text -->
   <!-- when it receives our custom event btnClick, it will call toggleAddTask, which is defined in the header.ts  -->
   <app-button
-    color="green"
-    text="add"
+    color="{{ showAddTask ? 'red' : 'green' }}"
+    text="{{ showAddTask ? 'Close' : 'Add' }}"
     (btnClick)="toggleAddTask()"
   ></app-button>
   <app-tasks></app-tasks>
