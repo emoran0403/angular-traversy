@@ -46,4 +46,11 @@ export class TasksComponent implements OnInit {
     // DONT => subscribe
     this.taskService.updateTaskReminder(task).subscribe();
   }
+
+  // this function makes a service call to add a task, passing in the task
+  // that service call returns an observable, which this funciton will subscribe to
+  // when that observable changes, this will update the this.tasks to now include the newly added task
+  addTask(task: Task) {
+    this.taskService.addTask(task).subscribe((task) => this.tasks.push(task));
+  }
 }

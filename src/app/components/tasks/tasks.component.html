@@ -8,8 +8,10 @@
 
 when our custom event 'onDeleteTask' is emitted, capture it and run the deleteTask function
 
+looks like the synax for events is this:
+(eventFromChild)="parentFunctionToCall(inputFromChild)"
 -->
-<app-add-task></app-add-task>
+<app-add-task (onAddTask)="addTask($event)"></app-add-task>
 <app-task-item
   *ngFor="let task of tasks"
   [task]="task"

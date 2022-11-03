@@ -52,4 +52,14 @@ export class TaskService {
     const url = `${this.apiUrl}/${task.id}`;
     return this.http.put<Task>(url, task, httpOptions);
   }
+
+  /**
+   * this service function is used for adding a task to the db
+   * makes a post req
+   * @param task a task object, which will be added to the db
+   * @returns an observable
+   */
+  addTask(task: Task): Observable<Task> {
+    return this.http.post<Task>(this.apiUrl, task, httpOptions);
+  }
 }
