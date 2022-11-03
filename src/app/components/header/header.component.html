@@ -2,7 +2,9 @@
   <header>{{ title }}</header>
   <!-- app-button is our custom component, where we can define the color and text -->
   <!-- when it receives our custom event btnClick, it will call toggleAddTask, which is defined in the header.ts  -->
+  <!-- conditionally display the button only if the user is on the approproate page -->
   <app-button
+    *ngIf="hasRoute('/')"
     color="{{ showAddTask ? 'red' : 'green' }}"
     text="{{ showAddTask ? 'Close' : 'Add' }}"
     (btnClick)="toggleAddTask()"

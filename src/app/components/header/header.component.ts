@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UiService } from 'src/app/services/ui.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,7 @@ export class HeaderComponent implements OnInit {
   subscription!: Subscription;
 
   // add services to the constructor, implement them as private if only this class needs them
-  constructor(private uiService: UiService) {
+  constructor(private uiService: UiService, private router: Router) {
     // set the subscription to the ui service, and when a
     this.subscription = uiService
       .onToggle()
@@ -24,5 +25,10 @@ export class HeaderComponent implements OnInit {
 
   toggleAddTask() {
     this.uiService.toggleAddTask();
+  }
+
+  hasRoute(route: string) {
+    // return a boolean indicating if the url matches the route
+    return this.router.url === route;
   }
 }
